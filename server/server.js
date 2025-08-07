@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 4000
 const app = express()
 
 app.use(express.json()) 
-app.use(cors())
+app.use(cors({ origin: true, credentials: true }));
+
 
 await connectDB()
 app.use('/api/user', userRouter)
